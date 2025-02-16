@@ -1,0 +1,326 @@
+<div class="container">
+    <button id="bookTripBtn">Book a Trip</button>
+</div>
+
+<div id="bookingModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <span class="back">&#8592;</span>
+        <h2>Book Your Dream Trip</h2>
+        <form id="bookingForm">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="destination">Destination:</label>
+                <select id="destination" name="destination" required onchange="updatePrice()">
+                    <option value="">Select a destination</option>
+                    <option value="paris">Paris, France - $1000</option>
+                    <option value="tokyo">Tokyo, Japan - $1200</option>
+                    <option value="newyork">New York, USA - $800</option>
+                    <option value="bali">Bali, Indonesia - $900</option>
+                    <option value="rome">Rome, Italy - $1100</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="text" id="price" name="price" readonly>
+            </div>
+            <div class="form-group">
+                <label for="departureDate">Departure Date:</label>
+                <input type="date" id="departureDate" name="departureDate" required>
+            </div>
+            <div class="form-group">
+                <label for="returnDate">Return Date:</label>
+                <input type="date" id="returnDate" name="returnDate" required>
+                <span id="dateError" class="error"></span>
+            </div>
+            <div class="form-group">
+                <label for="travelers">Number of Travelers:</label>
+                <input type="number" id="travelers" name="travelers" min="1" required>
+            </div>
+            <div class="form-group">
+                <label for="paymentMethod">Payment Method:</label>
+                <select id="paymentMethod" name="paymentMethod" required onchange="togglePaymentFields()">
+                    <option value="paypal">PayPal</option>
+                    <option value="visa">Visa</option>
+                    <option value="mpesa">M-Pesa</option>
+                    <option value="venmo">Venmo</option>
+                    <option value="cashapp">CashApp</option>
+                    <option value="moneygram">MoneyGram</option>
+                    <option value="sendwave">Sendwave</option>
+                    <option value="creditcard">Credit Card</option>
+                    <option value="debitcard">Debit Card</option>
+                    <option value="wise">Wise</option>
+                    <option value="banktransfer">Bank Transfer</option>
+                    <option value="bitcoin">Bitcoin</option>
+                </select>
+            </div>
+            <div id="paymentFields"></div>
+            <button type="submit">Book Now</button>
+        </form>
+    </div>
+</div>
+
+<div id="notification">
+    Booking confirmed! Check your email for details.
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var today = new Date().toISOString().split('T')[0];
+        document.getElementById("departureDate").setAttribute("min", today);
+    });
+
+    function updatePrice() {
+        var destination = document.getElementById("destination").value;
+        var price = "";
+
+        switch(destination) {
+            case "paris":
+                price = "$1000";
+                break;
+            case "tokyo":
+                price = "$1200";
+                break;
+            case "newyork":
+                price = "$800";
+                break;
+            case "bali":
+                price = "$900";
+                break;
+            case "rome":
+                price = "$1100";
+                break;
+            default:
+                price = "";
+        }
+
+        document.getElementById("price").value = price;
+    }
+
+    function togglePaymentFields() {
+        var paymentMethod = document.getElementById("paymentMethod").value;
+        var paymentFields = document.getElementById("paymentFields");
+
+        var fields = "";
+
+        if (paymentMethod === "mpesa") {
+            fields = `
+                <div class="form-group">
+                    <label for="paybillNumber">Paybill Number:</label>
+                    <input type="text" id="paybillNumber" value="123456" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="tillNumber">Till Number:</label>
+                    <input type="text" id="tillNumber" value="654321" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="transactionCode">Transaction Reference Code:</label>
+                    <input type="text" id="transactionCode" name="transactionCode" required>
+                </div>`;
+        } else if (paymentMethod === "paypal") {
+            fields = `
+                <div class="form-group">
+                    <label for="paypalAccount">PayPal Account:</label>
+                    <input type="text" id="paypalAccount" value="paypal@example.com" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="transactionCode">Transaction Reference Code:</label>
+                    <input type="text" id="transactionCode" name="transactionCode" required>
+                </div>`;
+        } else if (paymentMethod === "cashapp") {
+            fields = `
+                <div class="form-group">
+                    <label for="cashappTag">CashApp Tag/Account:</label>
+                    <input type="text" id="cashappTag" value="cashappTag" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="transactionCode">Transaction Reference Code:</label>
+                    <input type="text" id="transactionCode" name="transactionCode" required>
+                </div>`;
+        } else if (paymentMethod === "venmo") {
+            fields = `
+                <div class="form-group">
+                    <label for="venmoAccount">Venmo Account:</label>
+                    <input type="text" id="venmoAccount" value="venmoAccount" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="transactionCode">Transaction Reference Code:</label>
+                    <input type="text" id="transactionCode" name="transactionCode" required>
+                </div>`;
+        } else if (paymentMethod === "visa" || paymentMethod === "creditcard" || paymentMethod === "debitcard") {
+            fields = `
+                <div class="form-group">
+                    <label for="cardNumber">Card Number:</label>
+                    <input type="text" id="cardNumber" name="cardNumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="cardExpiry">Expiry Date:</label>
+                    <input type="text" id="cardExpiry" name="cardExpiry" required>
+                </div>
+                <div class="form-group">
+                    <label for="cardCVC">CVC:</label>
+                    <input type="text" id="cardCVC" name="cardCVC" required>
+                </div>`;
+        } else if (paymentMethod === "bitcoin") {
+            fields = `
+                <div class="form-group">
+                    <label for="bitcoinAddress">Bitcoin Address:</label>
+                    <input type="text" id="bitcoinAddress" value="bitcoinAddress123" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="bitcoinQRCode">QR Code:</label>
+                    <img id="bitcoinQRCode" src="bitcoinQRCode.png" alt="Bitcoin QR Code">
+                </div>
+                <div class="form-group">
+                    <label for="transactionCode">Transaction Reference Code:</label>
+                    <input type="text" id="transactionCode" name="transactionCode" required>
+                </div>`;
+        } else {
+            fields = `
+                <div class="form-group">
+                    <label for="transactionCode">Transaction Reference Code:</label>
+                    <input type="text" id="transactionCode" name="transactionCode" required>
+                </div>`;
+        }
+
+        paymentFields.innerHTML = fields;
+    }
+
+    document.getElementById("bookingForm").addEventListener("submit", function(event) {
+        var paymentMethod = document.getElementById("paymentMethod").value;
+        var transactionCode = document.getElementById("transactionCode").value;
+        var price = document.getElementById("price").value.replace("$", "");
+
+        event.preventDefault();
+
+        validateTransaction(paymentMethod, transactionCode, price).then(function(isValid) {
+            if (isValid) {
+                document.getElementById("notification").innerText = "Booking confirmed! Check your email for details.";
+                // Proceed with form submission
+                document.getElementById("bookingForm").submit();
+            } else {
+                document.getElementById("notification").innerText = "Transaction validation failed. Please check the transaction code and try again.";
+            }
+        });
+    });
+
+    function validateTransaction(paymentMethod, transactionCode, amount) {
+        return new Promise(function(resolve, reject) {
+            // Simulate an API call to validate the transaction code
+            setTimeout(function() {
+                var isValid = false;
+
+                switch(paymentMethod) {
+                    case "mpesa":
+                        isValid = (transactionCode === "VALID123" && amount === "1000"); // Simulated validation logic
+                        break;
+                    case "paypal":
+                        isValid = (transactionCode === "PAYPAL123" && amount === "1000"); // Simulated validation logic
+                        break;
+                    case "cashapp":
+                        isValid = (transactionCode === "CASHAPP123" && amount === "1000"); // Simulated validation logic
+                        break;
+                    case "venmo":
+                        isValid = (transactionCode === "VENMO123" && amount === "1000"); // Simulated validation logic
+                        break;
+                    case "visa":
+                    case "creditcard":
+                    case "debitcard":
+                        isValid = (transactionCode === "CARD123" && amount === "1000"); // Simulated validation logic
+                        break;
+                    case "bitcoin":
+                        isValid = (transactionCode === "BTC123" && amount === "1000"); // Simulated validation logic
+                        break;
+                    default:
+                        isValid = false;
+                }
+
+                resolve(isValid);
+            }, 1000);
+        });
+    }
+</script>
+
+-------------------------------------------------------------------
+
+  // Function to validate the form
+    function validateForm() {
+        const departureDate = new Date(document.getElementById('departureDate').value);
+        const returnDate = new Date(document.getElementById('returnDate').value);
+        const today = new Date();
+
+        // Clear previous error messages
+        document.getElementById('dateError').innerText = '';
+
+        if (departureDate < today) {
+            document.getElementById('dateError').innerText = 'Departure date cannot be in the past.';
+            return false;
+        }
+        if (returnDate <= departureDate) {
+            document.getElementById('dateError').innerText = 'Return date must be after the departure date.';
+            return false;
+        }
+
+        // Additional validation for M-Pesa transaction reference code
+        const paymentMethod = document.getElementById('paymentMethod').value;
+        if (paymentMethod === 'mpesa') {
+            const transactionCode = document.getElementById('transactionCode').value;
+            const price = parseFloat(document.getElementById('price').value.replace('$', ''));
+            if (!transactionCode) {
+                document.getElementById('transactionCode').setCustomValidity('Please enter the transaction reference code.');
+                return false;
+            } else {
+                // Validate the transaction reference code and payment amount
+                // You can add your custom validation logic here
+                // Assuming the validation is successful, clear any custom validity messages
+                document.getElementById('transactionCode').setCustomValidity('');
+            }
+        }
+
+        return true;
+    }
+
+
+
+     // Form submission handler
+    document.getElementById('bookingForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form from submitting normally
+
+        // Validate the form
+        if (validateForm()) {
+            // Show spinner
+            document.getElementById('spinner').style.display = 'block';
+
+            // Simulate payment processing delay (for demonstration purposes)
+            setTimeout(function() {
+                // Hide spinner
+                document.getElementById('spinner').style.display = 'none';
+
+                // Show booking success message
+                document.getElementById('bookingSuccess').style.display = 'block';
+
+                // Reset form (optional)
+                document.getElementById('bookingForm').reset();
+                updatePrice();
+                togglePaymentFields();
+            }, 3000); // Simulate 3 seconds delay
+        }
+    });
+
+
+
+
+
+
+
+     <button type="submit" id="bookNowBtn">Book Now</button>
+        <div id="spinner" style="display: none;">Processing...</div>
+        <p id="bookingSuccess" style="display: none;">Booking successful!</p>
+    

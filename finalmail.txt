@@ -1,0 +1,213 @@
+ <title>Book a Trip</title>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script>
+        const CLIENT_ID = 'YOUR_CLIENT_ID'; // Replace with your Client ID
+        const API_KEY = 'YOUR_API_KEY'; // Replace with your API Key
+        const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest"];
+        const SCOPES = 'https://www.googleapis.com/auth/gmail.send';
+
+        let GoogleAuth;
+
+        function handleClientLoad() {
+            gapi.load('client:auth2', initClient);
+        }
+
+        function initClient() {
+            gapi.client.init({
+                apiKey: API_KEY,
+                clientId: CLIENT_ID,
+                discoveryDocs: DISCOVERY_DOCS,
+                scope: SCOPES
+            }).then(() => {
+                GoogleAuth = gapi.auth2.getAuthInstance();
+            });
+        }
+
+        function handleAuthClick() {
+            GoogleAuth.signIn().then(() => {
+                sendEmail();
+            });
+        }
+
+        function sendEmail() {
+            const form = document.getElementById('bookingForm');
+            const name = form.name.value;
+            const email = form.email.value;
+            const destination = form.destination.value;
+            const departureDate = form.departureDate.value;
+            const returnDate = form.returnDate.value;
+            const travelers = form.travelers.value;
+
+            const message = `
+                Booking Details:
+                Name: ${name}
+                Email: ${email}
+                Destination: ${destination}
+                Departure Date: ${departureDate}
+                Return Date: ${returnDate}
+                Number of Travelers: ${travelers}
+            `;
+
+            const emailParams = {
+                'To': email,
+                'Subject': 'Booking Confirmation',
+                'Body': message
+            };
+
+            const rawMessage = [
+                'From: your-email@gmail.com',
+                `To: ${emailParams.To}`,
+                `Subject: ${emailParams.Subject}`,
+                '',
+                emailParams.Body
+            ].join('\n');
+
+            const base64EncodedEmail = btoa(rawMessage).replace(/\+/g, '-').replace(/\//g, '_');
+
+            gapi.client.gmail.users.messages.send({
+                'userId': 'me',
+                'resource': {
+                    'raw': base64EncodedEmail
+                }
+            }).then((response) => {
+                console.log('Email sent', response);
+                document.getElementById('notification').style.display = 'block';
+            });
+        }
+    </script>
+</head>
+<body onload="handleClientLoad()">
+    <button id="bookTripBtn">Book a Trip</button>
+
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <span class="back">&#8592;</span>
+            <h2>Book Your Dream Trip</h2>
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" placeholder="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="destination">Destination:</label>
+                    <select id="destination" name="destination" required>
+                            <option value="">Select a destination</option>
+                            <option value="paris">Paris, France</option>
+                            <option value="tokyo">Tokyo, Japan</option>
+                            <option value="newyork">New York, USA</option>
+                            <option value="rome">Rome, Italy</option>
+                            <option value="sydney">Sydney, Australia</option>
+                            <option value="doha">Doha, Qutar</option>
+                            <option value="amsterdam">Amsterdam, Netherlands</option>
+                            <option value="washington, D.C.">Washington, D.C., United States of America</option>
+                            <option value="berlin">Berlin, Germany</option>
+                            <option value="berlin">Berlin, Germany</option>
+                            <option value="london">London, United Kingdom</option>
+                            <option value="madrid">Madrid, Spain</option>
+                            <option value="moscow">Moscow, Russia</option>
+                            <option value="toronto">Toronto, Canada</option>
+                            <option value="dubai">Dubai, UAE</option>
+                            <option value="shanghai">Shanghai, China</option>
+                            <option value="singapore">Singapore</option>
+                            <option value="hongkong">Hong Kong, China</option>
+                            <option value="losangeles">Los Angeles, USA</option>
+                            <option value="mexicocity">Mexico City, Mexico</option>
+                            <option value="buenosaires">Buenos Aires, Argentina</option>
+                            <option value="cairo">Cairo, Egypt</option>
+                            <option value="mumbai">Mumbai, India</option>
+                            <option value="santiago">Santiago, Chile</option>
+                            <option value="bangkok">Bangkok, Thailand</option>
+                            <option value="istanbul">Istanbul, Turkey</option>
+                            <option value="são_paulo">São Paulo, Brazil</option>
+                            <option value="seoul">Seoul, South Korea</option>
+                            <option value="jakarta">Jakarta, Indonesia</option>
+                            <option value="vienna">Vienna, Austria</option>
+                            <option value="lisbon">Lisbon, Portugal</option>
+                            <option value="zurich">Zurich, Switzerland</option>
+                            <option value="brussels">Brussels, Belgium</option>
+                            <option value="stockholm">Stockholm, Sweden</option>
+                            <option value="copenhagen">Copenhagen, Denmark</option>
+                            <option value="oslo">Oslo, Norway</option>
+                            <option value="helsinki">Helsinki, Finland</option>
+                            <option value="budapest">Budapest, Hungary</option>
+                            <option value="athens">Athens, Greece</option>
+                            <option value="prague">Prague, Czech Republic</option>
+                            <option value="stockholm">Stockholm, Sweden</option>
+                            <option value="budapest">Budapest, Hungary</option>
+                            <option value="warsaw">Warsaw, Poland</option>
+                            <option value="warsaw">Warsaw, Poland</option>
+                            <option value="prague">Prague, Czech Republic</option>
+                            <option value="vienna">Vienna, Austria</option>
+                            <option value="cairo">Cairo, Egypt</option>
+                            <option value="madrid">Madrid, Spain</option>
+                            <option value="beijing">Beijing, China</option>
+                            <option value="moscow">Moscow, Russia</option>
+                            <option value="lisbon">Lisbon, Portugal</option>
+                            <option value="toronto">Toronto, Canada</option>
+                            <option value="riodejaneiro">Rio de Janeiro, Brazil</option>
+                            <option value="losangeles">Los Angeles, USA</option>
+                            <option value="hongkong">Hong Kong, China</option>
+                            <option value="sao_paulo">São Paulo, Brazil</option>
+                            <option value="seoul">Seoul, South Korea</option>
+                            <option value="istanbul">Istanbul, Turkey</option>
+                            <option value="jakarta">Jakarta, Indonesia</option>
+                            <option value="dublin">Dublin, Ireland</option>
+                            <option value="edinburgh">Edinburgh, Scotland</option>
+                            <option value="manila">Manila, Philippines</option>
+                            <option value="johannesburg">Johannesburg, South Africa</option>
+                            <option value="lima">Lima, Peru</option>
+                            <option value="bogota">Bogotá, Colombia</option>
+                            <option value="bangkok">Bangkok, Thailand</option>
+                            <option value="jakarta">Jakarta, Indonesia</option>
+                            <option value="vienna">Vienna, Austria</option>
+                            <option value="lisbon">Lisbon, Portugal</option>
+                            <option value="zurich">Zurich, Switzerland</option>
+                            <option value="hanoi">Hanoi, Vietnam</option>
+                            <option value="osaka">Osaka, Japan</option>
+                            <option value="kualalampur">Kuala Lampur, Malaysia</option>
+                            <option value="guangzhou">Guangzhou, China</option>
+                            <option value="bangalore">Bangalore, India</option>
+                            <option value="chennai">Chennai, India</option>
+                            <option value="kolkata">Kolkata, India</option>
+                            <option value="delhi">Delhi, India</option>
+                            <option value="mumbai">Mumbai, India</option>
+                            <option value="nairobi">Nairobi, Kenya</option>
+                            <option value="arusha">Arusha, Tanzania</option>
+
+
+
+
+                        </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="departureDate">Departure Date:</label>
+                    <input type="date" id="departureDate" name="departureDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="returnDate">Return Date:</label>
+                    <input type="date" id="returnDate" name="returnDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="travelers">Number of Travelers:</label>
+                    <input type="number" id="travelers" name="travelers" min="1" placeholder="Bring some friends ..!" required>
+                </div>
+
+                <button type="button" onclick="handleAuthClick()">Book Now</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="notification" style="display:none;">
+        Booking confirmed! Check your email for details.
+    </div>

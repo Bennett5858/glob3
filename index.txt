@@ -1,0 +1,665 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlobeTrotters - Explore the World with Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background: linear-gradient(135deg, #74ebd5 10%, #ac72cd 100%);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 1.2rem;
+            position: relative;
+        }
+
+        header nav a:hover::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+        }
+
+        section.hero {
+            background-image: url('https://example.com/plane.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        section.hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        section.hero .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        section.hero h1 {
+            font-size: 3.5rem;
+            margin: 0;
+        }
+
+        section.hero p {
+            font-size: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        section.hero .cta-button {
+            background-color: #74ebd5;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1.2rem;
+            color: black;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        section.hero .cta-button:hover {
+            background-color: #60c3b4;
+        }
+
+        main {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        main .intro {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        main .intro h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .section-container {
+            padding: 4rem 2rem;
+            background-color: #f9f9f9;
+        }
+
+        .section-services {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 2rem;
+        }
+
+        .section-services .service {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            width: 30%;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-services .service h2 {
+            font-size: 1.5rem;
+            color: #555;
+        }
+
+        .section-services .service p {
+            color: #777;
+        }
+
+        .section-services .service .icon-bg {
+            width: 100%;
+            height: 100px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .service i {
+            font-size: 2.5rem;
+            color: #74ebd5;
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        footer a {
+            color: #74ebd5;
+            text-decoration: none;
+        }
+
+        .footer-social-media {
+            margin: 1rem 0;
+        }
+
+        .footer-social-media a {
+            color: white;
+            font-size: 2rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-social-media a:hover {
+            color: #74ebd5;
+        }
+
+        .social-media a {
+            color: white;
+            font-size: 2rem;
+            margin: 0 0.5rem;
+        }
+
+        .section-about {
+            background-image: url('https://example.com/about-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .section-contact {
+            background-image: url('https://example.com/contact-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .section-contact p {
+            margin: 0.5rem 0;
+        }
+
+        .section-destinations {
+            background-color: #fff;
+            padding: 4rem 2rem;
+        }
+
+        .section-destinations h1 {
+            color: #333;
+        }
+
+        .destinations-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 2rem;
+        }
+
+        .destination {
+            background-color: #f9f9f9;
+            width: 28%;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .destination:hover {
+            transform: translateY(-10px);
+        }
+
+        .destination img {
+            width: 100%;
+            height: auto;
+        }
+
+        .destination h2 {
+            font-size: 1.5rem;
+            color: #555;
+            margin: 1rem;
+        }
+
+        .destination p {
+            color: #777;
+            margin: 0 1rem 1rem;
+        }
+
+        .section-map {
+            background-color: #e1e1e1;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .map-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            height: 500px;
+            margin: 0 auto;
+        }
+
+        .map-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .office-pin {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: red;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .office-pin::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid red;
+        }
+
+        .office-info {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .office-pin:hover .office-info {
+            display: block;
+        }
+
+        .section-testimonials {
+            background-color: #f1f1f1;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .section-testimonials h1 {
+            color: #333;
+            margin-bottom: 2rem;
+        }
+
+        .testimonials-carousel {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .testimonial {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            width: 30%;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .testimonial p {
+            color: #777;
+            font-style: italic;
+        }
+
+        .testimonial .client-info {
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .testimonial .client-photo {
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+            width: 50px;
+            height: 50px;
+        }
+
+        .testimonial .client-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial .client-name {
+            color: #555;
+            font-weight: bold;
+        }
+
+        .testimonial .fa-quote-left {
+            position: absolute;
+            top: -15px;
+            left: 15px;
+            font-size: 3rem;
+            color: #74ebd5;
+        }
+
+        .section-feedback {
+            background-color: #ffffff;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .section-feedback h1 {
+            color: #333;
+            margin-bottom: 2rem;
+        }
+
+        .feedback-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .feedback-form label {
+            display: block;
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        .feedback-form input, .feedback-form textarea {
+            width: 100%;
+            font-size: 1rem;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .feedback-form button {
+            background-color: #74ebd5;
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .feedback-form button:hover {
+            background-color: #60c3b4;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">GlobeTrotters</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="#services">Services</a>
+            <a href="#about">About Us</a>
+            <a href="#destinations">Destinations</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="floating">Explore the World with Us</h1>
+            <p>Your gateway to the world's limitless opportunities</p>
+            <button class="cta-button">Get Started</button>
+        </div>
+    </section>
+    <main>
+        <section class="intro" id="services">
+            <h1>Our Services</h1>
+        </section>
+        <section class="section-container">
+            <div class="section-services">
+                <div class="service">
+                    <div class="icon-bg" style="background-image: url('https://example.com/icon1.jpg');">
+                        <i class="fas fa-briefcase floating"></i>
+                    </div>
+                    <h2>Work Abroad</h2>
+                    <p>Find the best job opportunities around the globe that match your skillset and career aspirations.</p>
+                </div>
+                <div class="service">
+                    <div class="icon-bg" style="background-image: url('https://example.com/icon2.jpg');">
+                        <i class="fas fa-graduation-cap floating"></i>
+                    </div>
+                    <h2>Study Abroad</h2>
+                    <p>Explore our study abroad programs to enhance your education and immerse yourself in different cultures.</p>
+                </div>
+                <div class="service">
+                    <div class="icon-bg" style="background-image: url('https://example.com/icon3.jpg');">
+                        <i class="fas fa-plane floating"></i>
+                    </div>
+                    <h2>Travel Adventures</h2>
+                    <p>Join our curated travel adventures to discover the hidden gems of the world and create unforgettable memories.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section-about" id="about">
+            <h1>About Us</h1>
+            <p>GlobeTrotters is committed to providing unmatched services that open up a world of opportunities for our clients. With years of experience and a dedicated team, we ensure that your journey abroad is seamless and fulfilling.</p>
+        </section>
+        <section class="section-testimonials">
+            <h1>What Our Clients Say</h1>
+            <div class="testimonials-carousel">
+                <div class="testimonial" id="testimonial1">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"GlobeTrotters made my dream of studying abroad a reality. From the initial consultation to my arrival at the university, their support was invaluable."</p>
+                    <div class="client-info">
+                        <div class="client-photo">
+                            <img src="https://example.com/client1.jpg" alt="Client 1 photo" width="50" height="50">
+                        </div>
+                        <div class="client-name">Sarah Johnson</div>
+                    </div>
+                </div>
+                <div class="testimonial" id="testimonial2">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"Thanks to GlobeTrotters, I secured a fantastic job in a new country. The process was smooth, and their guidance was top-notch."</p>
+                    <div class="client-info">
+                        <div class="client-photo">
+                            <img src="https://example.com/client2.jpg" alt="Client 2 photo" width="50" height="50">
+                        </div>
+                        <div class="client-name">Mark Smith</div>
+                    </div>
+                </div>
+                <div class="testimonial" id="testimonial3">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"Traveling across the world was a dream come true, all thanks to GlobeTrotters. Their travel packages are simply the best."</p>
+                    <div class="client-info">
+                        <div class="client-photo">
+                            <img src="https://example.com/client3.jpg" alt="Client 3 photo" width="50" height="50">
+                        </div>
+                        <div class="client-name">Emily Davis</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-feedback">
+            <h1>Submit Your Feedback</h1>
+            <form class="feedback-form" id="feedbackForm" onsubmit="event.preventDefault(); addTestimonial();">
+                <label for="fName">Name:</label>
+                <input type="text" id="fName" name="fName" required>
+
+                <label for="fPhoto">Photo URL:</label>
+                <input type="url" id="fPhoto" name="fPhoto">
+
+                <label for="fFeedback">Feedback:</label>
+                <textarea id="fFeedback" name="fFeedback" rows="4" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <section class="section-destinations" id="destinations">
+            <h1>Popular Destinations</h1>
+            <div class="destinations-grid">
+                <div class="destination">
+                    <img src="https://example.com/paris.jpg" alt="Eiffel Tower in Paris" width="400" height="300">
+                    <h2>Paris, France</h2>
+                    <p>Stroll through the romantic streets of Paris, visit the iconic Eiffel Tower, and indulge in exquisite French cuisine.</p>
+                </div>
+                <div class="destination">
+                    <img src="https://example.com/tokyo.jpg" alt="Tokyo cityscape" width="400" height="300">
+                    <h2>Tokyo, Japan</h2>
+                    <p>Experience the vibrant and bustling energy of Tokyo, where tradition meets innovation in stunning harmony.</p>
+                </div>
+                <div class="destination">
+                    <img src="https://example.com/newyork.jpg" alt="Statue of Liberty in New York" width="400" height="300">
+                    <h2>New York, USA</h2>
+                    <p>Explore the city that never sleeps, filled with iconic landmarks, diverse cultures, and endless entertainment.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section-contact" id="contact">
+            <h1>Contact Us</h1>
+            <p><strong>Email:</strong> info@globetrotters.com</p><p><strong>Phone:</strong> +123-456-7890</p>
+        </section>
+        <section class="section-map">
+            <h1>Our Office Locations</h1>
+            <div class="map-container">
+                <img src="https://example.com/world-map.jpg" alt="World map showing office locations" width="800" height="500">
+                <!-- Example office pins -->
+                <div class="office-pin" style="top: 30%; left: 50%;" data-location="London">
+                    <span class="office-info">London Office</span>A
+                </div>
+                <div class="office-pin" style="top: 40%; left: 60%;" data-location="Dubai">
+                    <span class="office-info">Dubai Office</span>B
+                </div>
+                <div class="office-pin" style="top: 50%; left: 70%;" data-location="Singapore">
+                    <span class="office-info">Singapore Office</span>C
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-social-media">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>&copy; 2023 GlobeTrotters. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function addTestimonial() {
+            var name = document.getElementById("fName").value;
+            var photo = document.getElementById("fPhoto").value;
+            var feedback = document.getElementById("fFeedback").value;
+
+            var testimonial = document.createElement("div");
+            testimonial.className = "testimonial";
+
+            var quote = document.createElement("i");
+            quote.className = "fas fa-quote-left";
+            testimonial.appendChild(quote);
+
+            var feedbackText = document.createElement("p");
+            feedbackText.innerText = feedback;
+            testimonial.appendChild(feedbackText);
+
+            var clientInfo = document.createElement("div");
+            clientInfo.className = "client-info";
+
+            var clientPhoto = document.createElement("div");
+            clientPhoto.className = "client-photo";
+            
+            var img = document.createElement("img");
+            img.src = photo;
+            img.alt = `Client ${name} photo`;
+            img.width = 50;
+            img.height = 50;
+            clientPhoto.appendChild(img);
+
+            var clientName = document.createElement("div");
+            clientName.className = "client-name";
+            clientName.innerText = name;
+
+            clientInfo.appendChild(clientPhoto);
+            clientInfo.appendChild(clientName);
+            testimonial.appendChild(clientInfo);
+
+            var testimonialsCarousel = document.querySelector(".testimonials-carousel");
+            testimonialsCarousel.appendChild(testimonial);
+        }
+    </script>
+</body>
+
+</html>

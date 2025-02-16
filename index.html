@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlobeTrotters - Explore the World with Us</title>
+    <link rel="stylesheet" href="styles/stlye.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- <style>
+        /* ... (keeping the existing styles) ... */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background: linear-gradient(135deg, #74ebd5 10%, #ac72cd 100%);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 1.2rem;
+            position: relative;
+        }
+
+        header nav a:hover::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+        }
+
+        section.hero {
+            background-image: url('https://example.com/plane.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        section.hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        section.hero .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        section.hero h1 {
+            font-size: 3.5rem;
+            margin: 0;
+        }
+
+        section.hero p {
+            font-size: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        section.hero .cta-button {
+            background-color: #74ebd5;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1.2rem;
+            color: black;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        section.hero .cta-button:hover {
+            background-color: #60c3b4;
+        }
+
+        main {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        main .intro {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        main .intro h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .section-container {
+            padding: 4rem 2rem;
+            background-color: #f9f9f9;
+        }
+
+        .section-services {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 2rem;
+        }
+
+        .section-services .service {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            width: 30%;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-services .service h2 {
+            font-size: 1.5rem;
+            color: #555;
+        }
+
+        .section-services .service p {
+            color: #777;
+        }
+
+        .section-services .service .icon-bg {
+            width: 100%;
+            height: 100px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .service i {
+            font-size: 2.5rem;
+            color: #74ebd5;
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        footer a {
+            color: #74ebd5;
+            text-decoration: none;
+        }
+
+        .footer-social-media {
+            margin: 1rem 0;
+        }
+
+        .footer-social-media a {
+            color: white;
+            font-size: 2rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-social-media a:hover {
+            color: #74ebd5;
+        }
+
+        .social-media a {
+            color: white;
+            font-size: 2rem;
+            margin: 0 0.5rem;
+        }
+
+        .section-about {
+            background-image: url('https://example.com/about-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .section-contact {
+            background-image: url('https://example.com/contact-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .section-contact p {
+            margin: 0.5rem 0;
+        }
+
+        .section-destinations {
+            background-color: #fff;
+            padding: 4rem 2rem;
+        }
+
+        .section-destinations h1 {
+            color: #333;
+        }
+
+        .destinations-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 2rem;
+        }
+
+        .destination {
+            background-color: #f9f9f9;
+            width: 28%;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .destination:hover {
+            transform: translateY(-10px);
+        }
+
+        .destination img {
+            width: 100%;
+            height: auto;
+        }
+
+        .destination h2 {
+            font-size: 1.5rem;
+            color: #555;
+            margin: 1rem;
+        }
+
+        .destination p {
+            color: #777;
+            margin: 0 1rem 1rem;
+        }
+
+        .section-map {
+            background-color: #e1e1e1;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .map-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            height: 500px;
+            margin: 0 auto;
+        }
+
+        .map-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .office-pin {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: red;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .office-pin::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid red;
+        }
+
+        .office-info {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .office-pin:hover .office-info {
+            display: block;
+        }
+
+        .section-testimonials {
+            background-color: #f1f1f1;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .section-testimonials h1 {
+            color: #333;
+            margin-bottom: 2rem;
+        }
+
+        .testimonials-carousel {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .testimonial {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            width: 30%;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .testimonial p {
+            color: #777;
+            font-style: italic;
+        }
+
+        .testimonial .client-info {
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .testimonial .client-photo {
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+            width: 50px;
+            height: 50px;
+        }
+
+        .testimonial .client-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial .client-name {
+            color: #555;
+            font-weight: bold;
+        }
+
+        .testimonial .fa-quote-left {
+            position: absolute;
+            top: -15px;
+            left: 15px;
+            font-size: 3rem;
+            color: #74ebd5;
+        }
+
+        .section-feedback {
+            background-color: #ffffff;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .section-feedback h1 {
+            color: #333;
+            margin-bottom: 2rem;
+        }
+
+        .feedback-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .feedback-form label {
+            display: block;
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        .feedback-form input, .feedback-form textarea {
+            width: 100%;
+            font-size: 1rem;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .feedback-form button {
+            background-color: #74ebd5;
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .feedback-form button:hover {
+            background-color: #60c3b4;
+        }
+
+        .hidden {
+            display: none;
+        }
+        /* New styles for enhancements */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 8px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #newsletter-form input[type="email"] {
+            width: 70%;
+            padding: 10px;
+            margin-right: 10px;
+        }
+
+        #newsletter-form button {
+            padding: 10px 20px;
+            background-color: #74ebd5;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #74ebd5;
+            color: white;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: none;
+            transition: opacity 0.3s;
+        }
+
+        .scroll-to-top:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            header nav {
+                margin-top: 1rem;
+            }
+
+            header nav a {
+                margin: 0 0.5rem;
+            }
+
+            .section-services {
+                flex-direction: column;
+            }
+
+            .section-services .service {
+                width: 100%;
+                margin-bottom: 2rem;
+            }
+
+            .testimonials-carousel {
+                flex-direction: column;
+            }
+
+            .testimonial {
+                width: 100%;
+                margin-bottom: 2rem;
+            }
+
+            .destinations-grid {
+                flex-direction: column;
+            }
+
+            .destination {
+                width: 100%;
+            }
+        }
+    </style> -->
+</head>
+
+<body>
+    <div class="vidr" style="z-index: -1;">
+        <!-- The video -->
+        <video id="video" role="presentation" preload="auto" playsinline="" crossorigin="anonymous" loop="" muted="" autoplay="" class="blur" 
+        style="position: relative; width: 100%; height: 100%; object-fit: cover;margin-top:44px;">
+            <!-- <source src="video/t12.webm" type="video/webm"> -->
+            <source src="imgs\Emirates Fleet at Dubai International _ Timelapse_ Emirates Airline.mp4" type="video/mp4">
+        </video>
+    
+      </div>
+
+    <!-- ... (keeping the existing header and sections) ... -->
+
+    <header>
+        <!-- <div class="log"> -->
+
+            <!-- </div> -->
+            <div class="logo">
+                <!-- <img src="imgs\pa 1.jpeg" alt="logo"> -->
+                
+                    <video width="69px" height="69px"   style="border-radius: 20px;" autoplay="" loop="" muted="" class="blur">
+                        <source src="imgs\top.mp4">
+                    </video>JeffGlobe
+                
+            </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="#services">Services</a>
+            <a href="#about">About Us</a>
+            <a href="#destinations">Destinations</a>
+            <a href="#contact">Contact</a>
+           
+            
+        </nav>
+    </header>
+    <!-- ------------------------------------------------------------ -->
+     
+     <!---------------------------------------------------------------------------  -->
+     <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="floating">Explore the World with Us</h1>
+            <p>Your gateway to the world's limitless opportunities</p>
+            <!-- <button class="cta-button">BOOK A TRIP</button> -->
+            
+            <!-- <style>
+                @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        
+                @keyframes fadeIn {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }
+        
+                @keyframes slideIn {
+                    from { transform: translateY(-50px); opacity: 0; }
+                    to { transform: translateY(0); opacity: 1; }
+                }
+        
+               
+        
+                .modal {
+                    display: none;
+                    position: fixed;
+                    z-index: 1;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    overflow: auto;
+                    background-color: rgba(0,0,0,0.4);
+                    animation: fadeIn 0.3s ease-out;
+                }
+        
+                .modal-content {
+                    background: rgba(255, 255, 255, 0.9);
+                    margin: 5% auto;
+                    padding: 40px;
+                    border: none;
+                    width: 90%;
+                    max-width: 500px;
+                    border-radius: 20px;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                    position: relative;
+                    animation: slideIn 0.5s ease-out;
+                    backdrop-filter: blur(10px);
+                }
+        
+                .close, .back {
+                    color: #888;
+                    font-size: 28px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    position: absolute;
+                    top: 20px;
+                    transition: color 0.3s, transform 0.3s;
+                }
+        
+                .close {
+                    right: 30px;
+                }
+        
+                .back {
+                    right: 70px;
+                }
+        
+                .close:hover, .close:focus,
+                .back:hover, .back:focus {
+                    color: #000;
+                    transform: scale(1.1);
+                }
+        
+                h2 {
+                    color: #333;
+                    margin-bottom: 30px;
+                    padding-top: 10px;
+                    text-align: center;
+                    font-size: 28px;
+                    font-weight: 600;
+                }
+        
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+        
+                .form-group {
+                    width: 100%;
+                    margin-bottom: 20px;
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition: opacity 0.5s, transform 0.5s;
+                }
+        
+                .form-group.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+        
+                label {
+                    display: block;
+                    margin-bottom: 8px;
+                    color: #333;
+                    font-weight: 600;
+                    font-size: 14px;
+                }
+        
+                input, select {
+                    width: 100%;
+                    padding: 12px;
+                    border: 2px solid #ddd;
+                    border-radius: 8px;
+                    font-size: 16px;
+                    transition: border-color 0.3s, box-shadow 0.3s;
+                    background-color: rgba(255, 255, 255, 0.8);
+                }
+        
+                input:focus, select:focus {
+                    outline: none;
+                    border-color: #764ba2;
+                    box-shadow: 0 0 10px rgba(118, 75, 162, 0.3);
+                }
+        
+                button {
+                    margin-top: 20px;
+                    padding: 12px 30px;
+                    background-color: #764ba2;
+                    color: white;
+                    border: none;
+                    border-radius: 25px;
+                    cursor: pointer;
+                    font-size: 18px;
+                    font-weight: 600;
+                    transition: background-color 0.3s, transform 0.1s;
+                    width: 100%;
+                    max-width: 250px;
+                }
+        
+                button:hover {
+                    background-color: #5e3d82;
+                    transform: translateY(-2px);
+                    box-shadow: 0 5px 15px rgba(94, 61, 130, 0.3);
+                }
+        
+                button:active {
+                    transform: translateY(0);
+                }
+        
+                #bookTripBtn {
+                    padding: 15px 30px;
+                    font-size: 18px;
+                    background-color: #764ba2;
+                    color: white;
+                    border: none;
+                    border-radius: 25px;
+                    cursor: pointer;
+                    transition: background-color 0.3s, transform 0.1s;
+                    font-weight: 600;
+                }
+        
+                #bookTripBtn:hover {
+                    background-color: #5e3d82;
+                    transform: translateY(-2px);
+                    box-shadow: 0 5px 15px rgba(94, 61, 130, 0.3);
+                }
+        
+                #bookTripBtn:active {
+                    transform: translateY(0);
+                }
+        
+                .floating-bg {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    pointer-events: none;
+                    z-index: -1;
+                }
+        
+                .floating-bg div {
+                    position: absolute;
+                    display: block;
+                    width: 20px;
+                    height: 20px;
+                    background: rgba(255, 255, 255, 0.2);
+                    animation: animate 25s linear infinite;
+                    bottom: -150px;
+                    border-radius: 50%;
+                }
+        
+                @keyframes animate {
+                    0% {
+                        transform: translateY(0) rotate(0deg);
+                        opacity: 1;
+                        border-radius: 0;
+                    }
+                    100% {
+                        transform: translateY(-1000px) rotate(720deg);
+                        opacity: 0;
+                        border-radius: 50%;
+                    }
+                }
+            </style> -->
+        </head>
+        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- <script>
+            $(document).ready(function() {
+                $('#bookTripBtn').click(function() {
+                    $('#bookingModal').show();
+                });
+    
+                $('.close').click(function() {
+                    $('#bookingModal').hide();
+                });
+    
+                $('#bookingForm').submit(function(event) {
+                    event.preventDefault(); // Prevent the default form submission
+                    
+                    $.ajax({
+                        url: 'send_email.php',
+                        type: 'POST',
+                        data: $(this).serialize(),
+                        success: function(response) {
+                            $('#bookingModal').hide();
+                            $('#notification').show();
+                        },
+                        error: function() {
+                            alert('Error sending email. Please try again.');
+                        }
+                    });
+                });
+            });
+        </script> -->
+        
+        <!--  -->
+
+        <!-- <script>
+            document.getElementById('bookTripBtn').onclick = function() {
+                document.getElementById('bookingModal').style.display = "block";
+            };
+    
+            document.querySelector('.close').onclick = function() {
+                document.getElementById('bookingModal').style.display = "none";
+            };
+    
+            document.querySelector('.back').onclick = function() {
+                document.getElementById('bookingModal').style.display = "none";
+            };
+    
+            function sendEmail() {
+                const form = document.getElementById('bookingForm');
+                const formData = new FormData(form);
+                const data = {};
+                formData.forEach((value, key) => (data[key] = value));
+    
+                fetch('http://localhost:3000/send-email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.text())
+                .then(responseText => {
+                    document.getElementById('notification').style.display = "block";
+                    document.getElementById('bookingModal').style.display = "none";
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        </script> -->
+        
+        <!--  -->
+        
+    
+
+       
+        <title>Book a Trip</title>
+        <script src="https://apis.google.com/js/api.js"></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <!-- <script>
+            const CLIENT_ID = '590565347375-oc03sunlrfhdd5obi5gio9cjhjt9fm8h.apps.googleusercontent.com'; // Replace with your Client ID
+            const API_KEY = 'AIzaSyDDyfDTrFfQD2A1NzhzSWl3yy6i90jv3wY'; // Replace with your API Key
+            const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest"];
+            const SCOPES = 'https://www.googleapis.com/auth/gmail.send';
+    
+            let GoogleAuth;
+    
+            function handleClientLoad() {
+                gapi.load('client:auth2', initClient);
+            }
+    
+            function initClient() {
+                gapi.client.init({
+                    apiKey: API_KEY,
+                    clientId: CLIENT_ID,
+                    discoveryDocs: DISCOVERY_DOCS,
+                    scope: SCOPES
+                }).then(() => {
+                    GoogleAuth = gapi.auth2.getAuthInstance();
+                });
+            }
+    
+            function handleAuthClick() {
+                GoogleAuth.signIn().then(() => {
+                    sendEmail();
+                });
+            }
+    
+            function sendEmail() {
+                const form = document.getElementById('bookingForm');
+                const name = form.name.value;
+                const email = form.email.value;
+                const destination = form.destination.value;
+                const departureDate = form.departureDate.value;
+                const returnDate = form.returnDate.value;
+                const travelers = form.travelers.value;
+    
+                const message = `
+                    Booking Details:
+                    Name: ${name}
+                    Email: ${email}
+                    Destination: ${destination}
+                    Departure Date: ${departureDate}
+                    Return Date: ${returnDate}
+                    Number of Travelers: ${travelers}
+                `;
+    
+                const emailParams = {
+                    'To': email,
+                    'Subject': 'Booking Confirmation',
+                    'Body': message
+                };
+    
+                const rawMessage = [
+                    'From: ondakocollins@gmail.com',
+                    `To: ${emailParams.To}`,
+                    `Subject: ${emailParams.Subject}`,
+                    '',
+                    emailParams.Body
+                ].join('\n');
+    
+                const base64EncodedEmail = btoa(rawMessage).replace(/\+/g, '-').replace(/\//g, '_');
+    
+                gapi.client.gmail.users.messages.send({
+                    'userId': 'me',
+                    'resource': {
+                        'raw': base64EncodedEmail
+                    }
+                }).then((response) => {
+                    console.log('Email sent', response);
+                    document.getElementById('notification').style.display = 'block';
+                });
+            }
+        </script> -->
+    </head>
+    <body onload="handleClientLoad()">
+        <div class="container">
+    <button id="bookTripBtn">Book a Trip</button>
+</div>
+
+<div id="bookingModal" class="modal">
+<div class="modal-content">
+    <span class="close">&times;</span>
+    <span class="back">&#8592;</span>
+    <h2>Book Your Dream Trip</h2>
+    <form id="bookingForm">
+        <div class="form-group">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="destination">Destination:</label>
+            <select id="destination" name="destination" required onchange="updatePrice()" style="background-color: black;color:whitesmoke">
+                <option value="" style="background-color: black; color:rgb(9, 183, 236)">Select a destination</option>
+                <option value="paris">Paris, France - $1000</option>
+                <option value="tokyo">Tokyo, Japan - $1200</option>
+                <option value="newyork">New York, USA - $800</option>
+                <option value="bali">Bali, Indonesia - $900</option>
+                <option value="rome">Rome, Italy - $1100</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="text" id="price" name="price" readonly>
+        </div>
+        <div class="form-group">
+            <label for="departureDate">Departure Date:</label>
+            <input type="date" id="departureDate" name="departureDate" required>
+        </div>
+        <div class="form-group">
+            <label for="returnDate">Return Date:</label>
+            <input type="date" id="returnDate" name="returnDate" required>
+            <span id="dateError" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label for="travelers">Number of Travelers:</label>
+            <input type="number" id="travelers" name="travelers" min="1" required>
+        </div>
+        <div class="form-group">
+            <label for="paymentMethod">Payment Method:</label>
+            <select id="paymentMethod" name="paymentMethod" required onchange="togglePaymentFields()" style="background-color: black; color:whitesmoke;">
+                <option value="">Payment Options</option>
+                <option value="info" style="background-color: black; color:rgb(9, 183, 236)">Some may not be available in your country</option>
+                <option value="mpesa">M-Pesa</option>
+                <option value="paypal" style="background-color: black; color:orangered">PayPal or card ~~~ Recommended</option>
+                <option value="venmo">Venmo</option>
+                <option value="cashapp">CashApp</option>
+                <option value="moneygram">MoneyGram</option>
+                <option value="sendwave">Sendwave</option>
+                <option value="wise">Wise</option>
+                <option value="bitcoin">Bitcoin</option>
+            </select>
+        </div>
+
+        <!-- M-Pesa Fields -->
+        <div id="mpesaFields" style="display: none;">
+            <div class="form-group">
+                <label for="mpesaAccountNumber">M-Pesa Account Number:</label>
+                <input type="text" id="mpesaAccountNumber" name="mpesaAccountNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="mpesaOption">M-Pesa Payment Option:</label>
+                <select id="mpesaOption" name="mpesaOption" required>
+                    <option value="paybill">Paybill</option>
+                    <option value="till">Till Number</option>
+                    <option value="mpesaNumber">M-Pesa Number</option>
+                </select>
+            </div>
+            <div class="form-group" id="paybillFields" style="display: none;">
+                <label for="paybillNumber">Paybill Number:</label>
+                <input type="text" id="paybillNumber" value="123456" readonly>
+            </div>
+            <div class="form-group" id="tillFields" style="display: none;">
+                <label for="tillNumber">Till Number:</label>
+                <input type="text" id="tillNumber" value="654321" readonly>
+            </div>
+        </div>
+        <!-- Venmo Fields -->
+        <div id="venmoFields" style="display: none;">
+            <div class="form-group">
+                <label for="venmoUsername">Pay to Venmo Account:</label>
+                <input type="text" id="venmoUsername" name="venmoUsername" value="Oops !! coming soon" readonly>
+            </div>
+        </div>
+
+        <!-- CashApp Fields -->
+        <div id="cashappFields" style="display: none;">
+            <div class="form-group">
+                <label for="cashappUsername">Pay to CashApp Account:</label>
+                <input type="text" id="cashappUsername" name="cashappUsername" value="Oops !! coming soon" readonly>
+            </div>
+        </div>
+
+        <!-- MoneyGram Fields -->
+        <div id="moneygramFields" style="display: none;">
+            <div class="form-group">
+                <label for="moneygramPhoneNumber">Pay to MoneyGram Account:</label>
+                <input type="text" id="moneygramPhoneNumber" name="moneygramPhoneNumber" value="Oops !! coming soon" readonly>
+            </div>
+        </div>
+
+        <!-- Sendwave Fields -->
+        <div id="sendwaveFields" style="display: none;">
+            <div class="form-group">
+                <label for="sendwavePhoneNumber">Pay to Sendwave Account:</label>
+                <input type="text" id="sendwavePhoneNumber" name="sendwavePhoneNumber" value="Oops !! coming soon" readonly>
+            </div>
+        </div>
+
+        <!-- Wise Fields -->
+        <div id="wiseFields" style="display: none;">
+            <div class="form-group">
+                <label for="wiseEmail">Wise Pay Account:</label>
+                <input type="email" id="wiseEmail" name="wiseEmail" value="Oops !! coming soon" readonly>
+            </div>
+        </div>
+
+        <!-- Bitcoin Fields -->
+        <div id="bitcoinFields" style="display: none;">
+            <div class="form-group">
+                <label for="bitcoinWalletAddress">Pay to Bitcoin Wallet Address:</label>
+                <input type="text" id="bitcoinWalletAddress" name="bitcoinWalletAddress" value="Oops !! coming soon" readonly>
+            </div>
+        </div>
+        
+        <button type="submit">Book Now</button>
+    </form>
+    <br>
+    <br>
+    <br>
+    <!-- PayPal Checkout Button -->
+    <div id="paypal-button-container" style="display: none;"></div>
+
+    <!-- Venmo Button -->
+    <div id="venmo-button-container" style="display: none;">
+        <button id="venmo-button">Pay with Venmo</button>
+    </div>
+
+    <!-- CashApp Button -->
+    <div id="cashapp-button-container" style="display: none;">
+        <button id="cashapp-button">Pay with CashApp</button>
+    </div>
+
+    <!-- Sendwave Button -->
+    <div id="sendwave-button-container" style="display: none;">
+        <button id="sendwave-button">Pay with Sendwave</button>
+    </div>
+
+    <!-- MoneyGram Button -->
+    <div id="moneygram-button-container" style="display: none;">
+        <button id="moneygram-button">Pay with MoneyGram</button>
+    </div>
+
+    <!-- Wise Button -->
+    <div id="wise-button-container" style="display: none;">
+        <button id="wise-button">Pay with Wise</button>
+    </div>
+
+    <!-- M-Pesa Button -->
+    <div id="mpesa-button-container" style="display: none;">
+        <button id="mpesa-button">Pay with M-Pesa</button>
+    </div>
+</div>
+
+<script src="https://www.paypal.com/sdk/js?client-id=AQ8PKjHvLb-2BHZ18JMz-nYz-BjuhW5sTetAWdcbI7ZJF4bjZeyN3GJk8qILo5sVskWHjBKJ4jlVPtx1&currency=USD"></script>
+<script>
+    const destinationPrices = {
+        paris: 1000,
+        tokyo: 1200,
+        newyork: 800,
+        bali: 900,
+        rome: 1100
+    };
+
+    function updatePrice() {
+        const destination = document.getElementById('destination').value;
+        const price = destinationPrices[destination] || 0;
+        document.getElementById('price').value = '$' + price;
+    }
+
+    function togglePaymentFields() {
+        const paymentMethod = document.getElementById('paymentMethod').value;
+
+        // Hide all payment fields initially
+        document.getElementById('paypal-button-container').style.display = 'none';
+        document.getElementById('mpesaFields').style.display = 'none';
+        document.getElementById('mpesa-button-container').style.display = 'none';
+        document.getElementById('venmoFields').style.display = 'none';
+        document.getElementById('venmo-button-container').style.display = 'none';
+        document.getElementById('cashappFields').style.display = 'none';
+        document.getElementById('cashapp-button-container').style.display = 'none';
+        document.getElementById('moneygramFields').style.display = 'none';
+        document.getElementById('moneygram-button-container').style.display = 'none';
+        document.getElementById('sendwaveFields').style.display = 'none';
+        document.getElementById('sendwave-button-container').style.display = 'none';
+        document.getElementById('wiseFields').style.display = 'none';
+        document.getElementById('wise-button-container').style.display = 'none';
+        document.getElementById('bitcoinFields').style.display = 'none';
+
+        // Display selected payment fields
+        switch (paymentMethod) {
+            case 'mpesa':
+                document.getElementById('mpesaFields').style.display = 'block';
+                document.getElementById('mpesa-button-container').style.display = 'block';
+                break;
+            case 'paypal':
+                document.getElementById('paypal-button-container').style.display = 'block';
+                break;
+            case 'venmo':
+                document.getElementById('venmoFields').style.display = 'block';
+                document.getElementById('venmo-button-container').style.display = 'block';
+                break;
+            case 'cashapp':
+                document.getElementById('cashappFields').style.display = 'block';
+                document.getElementById('cashapp-button-container').style.display = 'block';
+                break;
+            case 'moneygram':
+                document.getElementById('moneygramFields').style.display = 'block';
+                document.getElementById('moneygram-button-container').style.display = 'block';
+                break;
+            case 'sendwave':
+                document.getElementById('sendwaveFields').style.display = 'block';
+                document.getElementById('sendwave-button-container').style.display = 'block';
+                break;
+            case 'wise':
+                document.getElementById('wiseFields').style.display = 'block';
+                document.getElementById('wise-button-container').style.display = 'block';
+                break;
+            case 'bitcoin':
+                document.getElementById('bitcoinFields').style.display = 'block';
+                break;
+        }
+    }
+
+    // Show or hide Paybill and Till fields based on M-Pesa option selection
+    document.getElementById('mpesaOption').addEventListener('change', function () {
+        const selectedOption = this.value;
+        document.getElementById('paybillFields').style.display = selectedOption === 'paybill' ? 'block' : 'none';
+        document.getElementById('tillFields').style.display = selectedOption === 'till' ? 'block' : 'none';
+    });
+
+    // Form validation for return date
+    document.getElementById('bookingForm').addEventListener('submit', function (event) {
+        const departureDate = new Date(document.getElementById('departureDate').value);
+        const returnDate = new Date(document.getElementById('returnDate').value);
+        const price = document.getElementById('price').value;
+        const paymentMethod = document.getElementById('paymentMethod').value;
+
+        if (returnDate <= departureDate) {
+            event.preventDefault();
+            document.getElementById('dateError').innerText = "Return date must be after departure date.";
+        } else {
+            document.getElementById('dateError').innerText = "";
+
+            // Handle M-Pesa payment validation and processing
+            if (paymentMethod === 'mpesa') {
+                event.preventDefault();
+                const mpesaAccountNumber = document.getElementById('mpesaAccountNumber').value;
+                const selectedOption = document.getElementById('mpesaOption').value;
+                let paymentReference = '';
+                if (selectedOption === 'paybill') {
+                    paymentReference = document.getElementById('paybillNumber').value;
+                } else if (selectedOption === 'till') {
+                    paymentReference = document.getElementById('tillNumber').value;
+                } else {
+                    paymentReference = mpesaAccountNumber; // Use the M-Pesa number as the reference for M-Pesa number option
+                }
+
+                // Perform the STK Push simulation (or real API call in production)
+                simulateSTKPush(mpesaAccountNumber, price, paymentReference);
+            }
+        }
+    });
+
+    // Function to simulate STK Push for M-Pesa (Replace with real API call in production)
+    function simulateSTKPush(mpesaAccountNumber, price, paymentReference) {
+        alert(`Simulating M-Pesa STK Push for account ${mpesaAccountNumber}\nAmount: ${price}\nReference: ${paymentReference}`);
+
+        // After successful payment, proceed to submit the form or show a success message
+        document.getElementById('bookingForm').submit(); // Submit the form after simulation
+    }
+
+    async function initiateSTKPush(mpesaAccountNumber, price, paymentReference) {
+        const amount = price.replace('$', '');
+
+        try {
+            const response = await fetch('https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials', {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Basic ' + btoa('b9HG4gWIBZ3bLZSwGRx82tRs6zwc64sUqgvf1ErEVfQ47cGR:KM4kvRV2GPg3JAqufgbNdvZhK98mr0cHiCpvac0nuWpXcnQALgTzblGqZnSpHUtC')
+                }
+            });
+
+            const data = await response.json();
+            const accessToken = data.p5JE7sSTen5QNqcvIYxPArmLIDHN;
+
+            const stkPushResponse = await fetch('https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest', {
+                method: 'POST',
+                headers: {
+                    'Authorization': 'Bearer ' + accessToken,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    "BusinessShortCode": paymentReference,
+                    "Password": btoa(paymentReference + process.env.bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919 + new Date().toISOString().replace(/[^0-9]/g, '').slice(0, -2)),
+                    "Timestamp": new Date().toISOString().replace(/[^0-9]/g, '').slice(0, -2),
+                    "TransactionType": "CustomerPayBillOnline",
+                    "Amount": amount,
+                    "PartyA": mpesaAccountNumber||"600983",
+                    "PartyB": recepientShortCode||"600000",
+                    "PhoneNumber": mpesaAccountNumber,
+                  // "CallBackURL": "https://your-website.com/callback",
+                   "CallBackURL": "http://127.0.0.1:5500/index.html?name=Collins+ondako&email=ondakocollins%40gmail.com&destination=tokyo&price=%241200&departureDate=2024-08-29&returnDate=2024-08-30&travelers=1&paymentMethod=mpesa&mpesaAccountNumber=0112969052&mpesaOption=paybill&venmoUsername=Oops+%21%21+coming+soon&cashappUsername=Oops+%21%21+coming+soon&moneygramPhoneNumber=Oops+%21%21+coming+soon&sendwavePhoneNumber=Oops+%21%21+coming+soon&wiseEmail=Oops+%21%21+coming+soon&bitcoinWalletAddress=Oops+%21%21+coming+soon",
+                    "AccountReference": "TRIP_PAYMENT",
+                    "TransactionDesc": "Payment for trip booking"
+                })
+            });
+2132331
+            const stkPushResult = await stkPushResponse.json();
+
+            if (stkPushResult.ResponseCode === "0") {
+                alert(`STK Push sent to ${mpesaAccountNumber}. Please enter your PIN to confirm the payment.`);
+                document.getElementById('bookingForm').submit(); // Submit the form after successful payment
+            } else {
+                alert(`Failed to initiate payment: ${stkPushResult.errorMessage}`);
+            }
+        } catch (error) {
+            console.error('Error initiating STK Push:', error);
+            alert('Failed to initiate payment. Please try again.');
+        }
+    }
+    // PayPal integration
+    paypal.Buttons({
+        createOrder: function (data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: document.getElementById('price').value.replace('$', '')
+                    }
+                }]
+            });
+        },
+        onApprove: function (data, actions) {
+            return actions.order.capture().then(function (details) {
+                alert('Transaction completed by ' + details.payer.name.given_name);
+                document.getElementById('bookingForm').submit();
+            });
+        }
+    }).render('#paypal-button-container');
+</script>
+
+          <!-- ANIMATION--------------- -->
+            <div class="floating-bg">
+                <div style="left: 10%; animation-delay: 0s;"></div>
+                <div style="left: 20%; animation-delay: 2s; animation-duration: 12s;"></div>
+                <div style="left: 35%; animation-delay: 4s;"></div>
+                <div style="left: 50%; animation-delay: 6s; animation-duration: 18s;"></div>
+                <div style="left: 65%; animation-delay: 8s;"></div>
+                <div style="left: 80%; animation-delay: 10s; animation-duration: 15s;"></div>
+                <div style="left: 90%; animation-delay: 12s;"></div>
+            </div>
+        </div>
+    </section>
+    <main>
+        <section class="intro" id="services">
+        <!-- Services Section -->
+            <h1><a href="services"></a>Our Services</h1>
+        </section>
+        <section class="section-container">
+            <div class="section-services">
+                <div class="service">
+                    <div class="icon-bg" style="background-image: url('https://example.com/icon1.jpg');">
+                        <i class="fas fa-briefcase floating"></i>
+                    </div>
+                    <h2>Work Abroad</h2>
+                    <p>Find the best job opportunities around the globe that match your skillset and career aspirations.</p>
+                </div>
+                <div class="service">
+                    <div class="icon-bg" style="background-image: url('https://example.com/icon2.jpg');">
+                        <i class="fas fa-graduation-cap floating"></i>
+                    </div>
+                    <h2>Study Abroad</h2>
+                    <p>Explore our study abroad programs to enhance your education and immerse yourself in different cultures.</p>
+                </div>
+                <div class="service">
+                    <div class="icon-bg" style="background-image: url('https://example.com/icon3.jpg');">
+                        <i class="fas fa-plane floating"></i>
+                    </div>
+                    <h2>Travel Adventures</h2>
+                    <p>Join our curated travel adventures to discover the hidden gems of the world and create unforgettable memories.</p>
+                </div>
+            </div>
+        </section>
+        <!-- ABOUT SECTION------->
+        <section class="section-about" id="about">
+            <h1>About Us</h1>
+            <p>GlobeTrotters is committed to providing unmatched services that open up a world of opportunities for our clients. With years of experience and a dedicated team, we ensure that your journey abroad is seamless and fulfilling.</p>
+        </section>
+        <!-- TESTIMONIALS SECTION---->
+        <section class="section-testimonials">
+            <h1>What Our Clients Say</h1>
+            <div class="testimonials-carousel">
+                <div class="testimonial" id="testimonial1">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"GlobeTrotters made my dream of studying abroad a reality. From the initial consultation to my arrival at the university, their support was invaluable."</p>
+                    <div class="client-info">
+                        <div class="client-photo">
+                            <img src="imgs/pass1.jpg" alt="Client 1 photo" width="50" height="50">
+                        </div>
+                        <div class="client-name">Sarah Johnson</div>
+                    </div>
+                </div>
+                <div class="testimonial" id="testimonial2">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"Thanks to GlobeTrotters, I secured a fantastic job in a new country. The process was smooth, and their guidance was top-notch."</p>
+                    <div class="client-info">
+                        <div class="client-photo">
+                            <img src="imgs/pass2.jpg" alt="Client 2 photo" width="50" height="50">
+                        </div>
+                        <div class="client-name">Mark Smith</div>
+                    </div>
+                </div>
+                <div class="testimonial" id="testimonial3">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"Traveling across the world was a dream come true, all thanks to GlobeTrotters. Their travel packages are simply the best."</p>
+                    <div class="client-info">
+                        <div class="client-photo">
+                            <img src="imgs/pass3.jpg" alt="Client 3 photo" width="50" height="50">
+                        </div>
+                        <div class="client-name">Emily Davis</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- FEEDBACK SECTION---->
+        <section class="section-feedback" id="feedback">
+            <h1>Share Your Experience</h1>
+            <form class="feedback-form" id="feedbackForm" action="send_email.php" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="email" required>
+                
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" placeholder="location">
+                
+                <label for="feedback">Your Feedback:</label>
+                <textarea id="feedback" name="feedback" rows="4" required placeholder="Tell us something...!"></textarea>
+                
+                <label for="photo">Upload a Photo:</label>
+                <input type="file" id="photo" name="photo" accept="image/*">
+                
+                <!-- <button type="button" id="takePhotoBtn">Take a Photo</button> -->
+                <video id="camera" class="hidden" width="320" height="240"></video>
+                <canvas id="canvas" class="hidden" width="320" height="240"></canvas>
+                <!-- <button type="button" id="captureBtn" class="hidden">Capture Photo</button> -->
+                
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </section>
+        <!--  -->
+        <!-- DSTINATIONS ------------------------------->
+        <section class="section-destinations" id="destinations">
+            <h1>Popular Destinations</h1>
+            <div class="destinations-grid">
+                <div class="destination">
+                    <img src="imgs\pais1 (1).jpeg" alt="Eiffel Tower in Paris" width="400" height="300">
+                    <h2>Paris, France</h2>
+                    <p>Stroll through the romantic streets of Paris, visit the iconic Eiffel Tower, and indulge in exquisite French cuisine.</p>
+                </div>
+                <div class="destination">
+                    <img src="imgs\tokyo 1.jpeg" alt="Tokyo cityscape" width="400" height="300">
+                    <h2>Tokyo, Japan</h2>
+                    <p>Experience the vibrant and bustling energy of Tokyo, where tradition meets innovation in stunning harmony.</p>
+                </div>
+                <div class="destination">
+                    <img src="imgs\nyok 2.jpeg" alt="Statue of Liberty in New York" width="400" height="300">
+                    <h2>New York, USA</h2>
+                    <p>Explore the city that never sleeps, filled with iconic landmarks, diverse cultures, and endless entertainment.</p>
+                </div>
+                <div class="destination">
+                    <img src="imgs\doha 2.jpeg" alt="Statue of Liberty in New York" width="400" height="300">
+                    <h2>Doha, Qutar</h2>
+                    <p>Explore the city that never sleeps, filled with iconic landmarks, diverse cultures, and endless entertainment.</p>
+                </div>
+                <div class="destination">
+                    <img src="imgs\Amsterdam 1.jpeg" alt="Statue of Liberty in New York" width="400" height="300">
+                    <h2>Amsterdam, Netherlands</h2>
+                    <p>Explore the city that never sleeps, filled with iconic landmarks, diverse cultures, and endless entertainment.</p>
+                </div>
+                <div class="destination">
+                    <img src="imgs\Berlin 1.jpeg" alt="Statue of Liberty in New York" width="400" height="300">
+                    <h2>Berlin, Germany</h2>
+                    <p>Explore the city that never sleeps, filled with iconic landmarks, diverse cultures, and endless entertainment.</p>
+                </div>
+                <!-- <div class="destination">
+                    <img src="imgs\Washington, D.C 3.jpeg" alt="Statue of Liberty in New York" width="400" height="300">
+                    <h2>Washington, D.C., United States of America</h2>
+                    <p>Explore the city that never sleeps, filled with iconic landmarks, diverse cultures, and endless entertainment.</p>
+                </div> -->
+            </div>
+        </section>
+        <!-- CONTACT US ------------------------------->
+        <section class="section-contact" id="contact">
+            <h1>Contact Us</h1>
+            <p><strong>Email:</strong> info@globetrotters.com</p><p><strong>Phone:</strong> +123-456-7890</p>
+        </section>
+        <!-- MAP ------------------------------->
+        <section class="section-map">
+            <h1>Our Office Locations</h1>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107092.31391522152!2d39.54460083480082!3d-4.052643336984522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1840126ac963e7d5%3A0x9385cb77dccb5ab1!2sJumeirah%20Beachfront%20Apartments%2C%20Hotel%20%26%20Venue%20Space!5e0!3m2!1sen!2ske!4v1723008739121!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <!-- Example office pins -->
+                <!-- <div class="office-pin" style="top: 30%; left: 50%;" data-location="London">
+                    <span class="office-info">London Office</span>A
+                </div>
+                <div class="office-pin" style="top: 40%; left: 60%;" data-location="Dubai">
+                    <span class="office-info">Dubai Office</span>B
+                </div>
+                <div class="office-pin" style="top: 50%; left: 70%;" data-location="Singapore">
+                    <span class="office-info">Singapore Office</span>C
+                </div> -->
+            </div>
+            <h4>World map showing office locations.</h4>
+        </section>
+
+    <!-- New Newsletter Modal -->
+    <div id="newsletter-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Stay updated with our latest travel deals and tips!</p>
+            <form id="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+<!-- FOOTER ------------------------------->
+    <footer>
+        
+        <div class="footer-social-media">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://x.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>&copy; 2023 GlobeTrotters. All rights reserved.</p>
+  
+        <!-- ... (keeping the existing footer content) ... -->
+    </footer>
+
+    
+    <script>
+        // Testimonials Carousel
+        const testimonialsContainer = document.getElementById('testimonialsContainer');
+        const testimonials = testimonialsContainer.children;
+        let currentTestimonial = 0;
+
+        function showNextTestimonial() {
+            testimonials[currentTestimonial].style.opacity = '0';
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            testimonials[currentTestimonial].style.opacity = '1';
+        }
+
+        setInterval(showNextTestimonial, 5000);
+
+        // Feedback Form
+        const feedbackForm = document.getElementById('feedbackForm');
+        const takePhotoBtn = document.getElementById('takePhotoBtn');
+        const camera = document.getElementById('camera');
+        const canvas = document.getElementById('canvas');
+        const captureBtn = document.getElementById('captureBtn');
+
+        takePhotoBtn.addEventListener('click', () => {
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices.getUserMedia({ video: true })
+                    .then((stream) => {
+                        camera.srcObject = stream;
+                        camera.play();
+                        camera.classList.remove('hidden');
+                        captureBtn.classList.remove('hidden');
+                    })
+                    .catch((error) => {
+                        console.error("Error accessing the camera:", error);
+                    });
+            }
+        });
+
+        captureBtn.addEventListener('click', () => {
+            canvas.getContext('2d').drawImage(camera, 0, 0, canvas.width, canvas.height);
+            const imageDataUrl = canvas.toDataURL('image/jpeg');
+            
+            // Create a new Image element with the captured photo
+            const img = document.createElement('img');
+            img.src = imageDataUrl;
+            img.style.width = '100px';
+            img.style.height = '100px';
+            
+            // Append the image to the form
+            feedbackForm.appendChild(img);
+            
+            // Stop the camera stream
+            camera.srcObject.getTracks().forEach(track => track.stop());
+            camera.classList.add('hidden');
+            captureBtn.classList.add('hidden');
+        });
+
+        feedbackForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const location = document.getElementById('location').value;
+            const feedback = document.getElementById('feedback').value;
+            const image = document.getElementById('image').value;
+            
+            // Create a new testimonial
+            const newTestimonial = document.createElement('div');
+            newTestimonial.className = 'testimonial';
+            newTestimonial.innerHTML = `
+                <i class="fas fa-quote-left"></i>
+                <p>"${feedback}"</p>
+                <div class="client-info">
+                    <div class="client-photo">
+                        <img src="${canvas.toDataURL('image/jpeg')}" alt="${name}'s photo" width="60" height="60">
+                    </div>
+                    <div class="client-name">${name}</div>
+                    <div class="client-email">${email}</div>
+                    <div class="client-location">${location}</div>
+                </div>
+            `;
+            
+            // Add the new testimonial to the container
+            testimonialsContainer.appendChild(newTestimonial);
+            
+            // Remove the oldest testimonial if there are more than 4
+            if (testimonialsContainer.children.length > 4) {
+                testimonialsContainer.removeChild(testimonialsContainer.children[0]);
+            }
+            
+            // Reset the form
+            feedbackForm.reset();
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <script  type="text/javascript">
+         
+        (function() {
+            emailjs.init("UEI7toHsboKO6jWLVHZCM"); // Replace with your EmailJS user ID
+             function sendEmail() {
+    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+      to_name: "Recipient Name",
+      from_name: "Your Name",
+      message: "This is a test message",
+    })
+    .then(function(response) {
+      console.log('SUCCESS!', response.status, response.text);
+    }, function(error) {
+      console.log('FAILED...', error);
+    });
+  }
+        })();
+        const modal = document.getElementById("bookingModal");
+        const btn = document.getElementById("bookTripBtn");
+        const span = document.getElementsByClassName("close")[0];
+        const back = document.getElementsByClassName("back")[0];
+        const form = document.getElementById("bookingForm");
+        const formGroups = document.querySelectorAll('.form-group');
+        const notification = document.getElementById("notification");
+        const departureDateInput = document.getElementById('departureDate');
+        const returnDateInput = document.getElementById('returnDate');
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+            animateFormGroups();
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        back.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        form.onsubmit = function(e) {
+            e.preventDefault();
+            alert("Thank you for booking your trip! We'll contact you shortly with more details.");
+                if (validateForm()) {
+                sendEmail();
+                showNotification();
+                modal.style.display = "none";
+                form.reset();
+            }
+        }
+         
+        function validateForm() {
+            const departureDate = new Date(departureDateInput.value);
+            const returnDate = new Date(returnDateInput.value);
+            const dateError = document.getElementById('dateError');
+
+            if (returnDate < departureDate) {
+                dateError.textContent = "Return date cannot be earlier than departure date.";
+                return false;
+            } else {
+                dateError.textContent = "";
+                return true;
+            }
+        }
+ 
+        
+        function sendEmail() {
+            const templateParams = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                destination: document.getElementById('destination').value,
+                departureDate: departureDateInput.value,
+                returnDate: returnDateInput.value,
+                travelers: document.getElementById('travelers').value
+            };
+
+            emailjs.send('ZBYfWgHXtvMpig0L1', 'template_y7nbvfu', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                }, function(error) {
+                    console.log('FAILED...', error);
+                });
+        }
+        
+        // Set minimum date for departure to today
+        const today = new Date().toISOString().split('T')[0];
+        departureDateInput.min = today;
+
+        // Update return date minimum when departure date changes
+        departureDateInput.addEventListener('change', function() {
+            returnDateInput.min = this.value;
+            returnDateInput.value = ''; // Reset return date when departure date changes
+        });
+
+        // Validate dates when either input changes
+        departureDateInput.addEventListener('change', validateForm);
+        returnDateInput.addEventListener('change', validateForm);
+   
+        
+        function showNotification() {
+            notification.style.display = "block";
+            setTimeout(() => {
+                notification.style.display = "none";
+            }, 5000);
+        }
+
+        function animateFormGroups() {
+            formGroups.forEach((group, index) => {
+                setTimeout(() => {
+                    group.classList.add('visible');
+                }, index * 100);
+            });
+        }
+    </script>
+    
+</body>
+
+</html>
